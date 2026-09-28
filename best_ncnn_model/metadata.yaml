@@ -1,0 +1,25 @@
+description: Ultralytics YOLO11n-seg model trained on C:\Users\soham\finalproject\new_pipeline\yolo_dataset_fixed\data.yaml
+author: Ultralytics
+date: '2026-09-28T12:33:23.829001+05:30'
+version: 8.4.158
+license: AGPL-3.0 License (https://ultralytics.com/license)
+docs: https://docs.ultralytics.com
+stride: 32
+task: segment
+head: Segment
+batch: 1
+imgsz:
+- 320
+- 320
+names:
+  0: Bus
+  1: Car
+  2: full dashed white
+  3: Pedestrian
+  4: Truck
+  5: yellow lane boundary
+args:
+  batch: 1
+  quantize: null
+channels: 3
+end2end: false

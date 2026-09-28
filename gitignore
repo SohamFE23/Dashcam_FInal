@@ -1,0 +1,135 @@
+# ============================================================
+# Raspberry Pi Dashcam / ADAS - Git Ignore
+# ============================================================
+
+# ---------- Python ----------
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*$py.class
+
+# ---------- Virtual environments ----------
+venv/
+venv_*/
+.venv/
+env/
+env_*/
+.python-version
+
+# ---------- Python tooling ----------
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+
+# ---------- Jupyter ----------
+.ipynb_checkpoints/
+
+# ---------- IDE / Editors ----------
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# ---------- Logs ----------
+*.log
+logs/
+*.out
+
+# ---------- Generated test outputs ----------
+frame_*.jpg
+frame_*.jpeg
+frame_*.png
+output/
+outputs/
+results/
+runs/
+
+# ---------- Camera / video files ----------
+*.mp4
+*.avi
+*.mov
+*.mkv
+*.h264
+*.h265
+*.mjpeg
+*.webm
+
+# ---------- Images captured during testing ----------
+camera_test*.jpg
+test_*.jpg
+test_*.png
+hand_*.jpg
+face_*.jpg
+ceiling_*.jpg
+
+# ---------- YOLO / training artifacts ----------
+datasets/
+dataset/
+data/
+train/
+val/
+test/
+labels/
+images/
+runs/
+weights/
+checkpoints/
+
+# ---------- Trained / exported model binaries ----------
+# Keep these locally, but do not commit large model files.
+*.pt
+*.onnx
+*.engine
+*.tflite
+*.mlmodel
+*.pth
+
+# NCNN exported model
+best_ncnn_model/
+*.bin
+*.param
+
+# ---------- Temporary / generated model files ----------
+*.cache
+*.tmp
+*.temp
+*.bak
+*.backup
+
+# ---------- OS / package metadata ----------
+*.pid
+*.pid.lock
+
+# ---------- Compiled / native artifacts ----------
+build/
+dist/
+*.so
+*.dylib
+*.dll
+
+# ---------- Local configuration / secrets ----------
+.env
+.env.*
+*.secret
+config.local.*
+secrets.*
+
+# ---------- Raspberry Pi / local machine files ----------
+*.pid
+*.lock
+
+# ============================================================
+# KEEP TRACKED
+# ============================================================
+# Your source .py files are NOT ignored.
+# Add your documentation explicitly:
+# README.md
+# requirements.txt
