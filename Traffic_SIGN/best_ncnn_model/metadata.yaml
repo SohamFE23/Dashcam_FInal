@@ -1,0 +1,20 @@
+description: Ultralytics YOLO11n model trained on dataset\data.yaml
+author: Ultralytics
+date: '2026-10-07T11:49:07.215631'
+version: 8.3.199
+license: AGPL-3.0 License (https://ultralytics.com/license)
+docs: https://docs.ultralytics.com
+stride: 32
+task: detect
+batch: 1
+imgsz:
+- 320
+- 320
+names:
+  0: green
+  1: red
+  2: yellow
+args:
+  batch: 1
+  half: false
+channels: 3
