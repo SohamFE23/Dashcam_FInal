@@ -27,6 +27,7 @@ import cv2
 import numpy as np
 import onnxruntime as ort
 from picamera2 import Picamera2
+from libcamera import controls
 
 ROOT = Path(__file__).resolve().parent
 DEFAULT_MODEL = ROOT / "best.onnx"
@@ -266,9 +267,28 @@ def main():
 
     # Start camera only after model initialization succeeds.
     picam2 = Picamera2()
+    from libcamera import controls
+
     config = picam2.create_video_configuration(
-        main={"size": (CAM_W, CAM_H), "format": "RGB888"},
-        controls={"FrameRate": CAM_FPS},
+        main={
+            "size": (CAM_W, CAM_H),
+            "format": "RGB888"
+        },
+        controls={
+            "FrameRate": CAM_FPS,
+
+            # Better indoor colour balance
+            "AwbMode": controls.AwbModeEnum.Fluorescent,
+
+            # Image tuning
+            "Brightness": 0.05,
+            "Contrast": 1.05,
+            "Saturation": 0.95,
+            "Sharpness": 1.2,
+
+            # Slight exposure lift
+            "ExposureValue": 0.3,
+        },
         buffer_count=4,
     )
     picam2.configure(config)
@@ -295,7 +315,8 @@ def main():
 
     try:
         while not stop.is_set():
-            rgb = picam2.capture_array()
+            frame = picam2.capture_array()
+            rgb = frame[:, :, ::-1].copy()
 
             with frame_lock:
                 latest["seq"] = seq
